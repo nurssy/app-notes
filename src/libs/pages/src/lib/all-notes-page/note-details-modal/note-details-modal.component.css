@@ -1,0 +1,12 @@
+.button-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: row; /* Changed to row */
+    align-items: flex-end;
+}
+
+.btn {
+    margin-right: 5px; /* Added margin-right to create space between buttons */
+}

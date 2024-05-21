@@ -1,0 +1,133 @@
+.page{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 1;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.rout{
+    position: fixed;
+    left: 50%;
+    bottom: 20px; 
+    transform: translateX(-50%);
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.803);
+    border-radius: 10px;
+}
+
+
+
+.wrapper{
+ padding: 50px;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, 265px);
+    
+}
+.wrapper li{
+    list-style: none;
+    height: 250px;
+    background-color: beige;
+    border-radius: 5px;
+    padding: 15px 20px 20px;
+}
+
+.add-box, .icon , .bottom-content ,.setting .menu li{
+    display: flex;
+    align-items: center;
+    justify-self: space-between;
+}
+
+.add-box{
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+ 
+}
+
+.add-box .icon{
+    height: 78px;
+    width: 78px;
+    color: black;
+    font-size: 40px;
+    border-radius: 50%; ;
+    justify-content: center;
+    border: 2px dashed black;
+}
+
+.add-box p{
+    color: black;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.wrapper .note{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.note p{
+    font-size: 22px;
+    font-weight: 500;
+}   
+
+.note span{
+    display: block;
+    margin-top: 5px;
+    color: rgb(69, 59, 52);
+    font-size: 16px;
+}
+
+.note .bottom-content{
+    padding-top: 10px;
+    border-top: 1px solid rgb(69, 59, 52);
+}
+
+.bottom-content span{
+    color: rosybrown;
+    font-size: 14px;
+}
+
+.bottom-content .settings i{ 
+    color: rosybrown;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.settings{
+    position: relative;
+}
+.setting .menu{
+    position: absolute;
+    bottom:0;
+    padding: 5px 0;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+.setting .menu li{
+   height: 25px;
+   border-radius: 0;
+   background: #fff;
+   justify-content: flex-start;
+}
+
+.menu li:hover{
+    background: #f0f0f0;
+}
+
+.menu li i{
+    padding-right: 8px;
+}

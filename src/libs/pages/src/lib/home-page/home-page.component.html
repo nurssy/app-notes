@@ -1,0 +1,33 @@
+<body>
+    <header>
+        <div class="wrapper">
+            <nav>
+                <div class="logo">
+                  <a href="#" class="logo"><img src="./assets/logo.png" alt="Logo" /></a>
+                    
+                    <h2>NoteSena</h2>
+                </div>
+
+                <input type="checkbox" id="click">
+                <label for="click" class="mobile_menu_btn">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </label>
+            </nav>
+
+            
+            <div class="container">
+                <div class="text">
+                    <span>Hayatını Şekillendir</span>
+                    <h3>Hayatına düzen katmak mı istiyorsun?</h3>
+                    <p>Kendin için önemli şeyleri not almak,düzenli takvim kulllanımı <br> ve daha fazlası için bize katıl.</p>
+                    <button [routerLink]="['/login']" routerLinkActive="router-link-active"  class="primary_btn">Giris Yap</button>
+                    <button [routerLink]="['/register']" routerLinkActive="router-link-active"  class="login-btn">Üye ol</button>
+                </div>
+
+                <div class="home_image">
+                    <img src="./assets/p3.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </header>
+</body>

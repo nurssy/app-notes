@@ -1,0 +1,38 @@
+<img src="./assets/bg1.jpeg" class="page" alt="" />
+
+
+<div class="wrapper">
+  <li class="add-box">
+    <div class="icon" (click)="openModal()">
+      <mat-icon> add </mat-icon>
+    </div>
+    <p>Yeni Not Ekle</p>
+  </li>
+
+  <div *ngIf="notes">
+    <div *ngFor="let note of notes">
+        <ng-container *ngTemplateOutlet="noteArea; context: {note: note}"></ng-container>
+    </div>
+</div>
+
+<ng-template #noteArea let-note="note">
+    <li class="note">
+        <div class="details">
+          <p>{{note.title}}</p>
+          <span>{{note.content}}</span>
+        </div>
+        <div class="bottom-content">
+          <span>May 21 , 2024</span>
+          <div class="settings"></div>
+          <i class="uil uil-ellipsis-h"></i>
+          
+        </div>
+      </li>
+</ng-template>
+
+</div>
+
+<footer class="d-flex justify-content-center">
+    <button class="btn btn-info" [routerLink]="['/allNotes']">büyülü buton</button>
+</footer>
+

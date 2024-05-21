@@ -1,0 +1,14 @@
+<form #data="ngForm" (ngSubmit)="onSubmit(data)">
+    <div class="mb-3">
+        <label for="title"  class="form-label">Başlık</label>
+        <input type="email" ngModel name="title" class="form-control" id="title" placeholder="Başlık">
+    </div>
+    <div class="mb-3">
+        <label for="content"  class="form-label">İçerik</label>
+        <textarea class="form-control" placeholder="Notu giriniz.." ngModel name="content" id="content" rows="3"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">
+        Notu Kaydet
+    </button>
+</form>
+
