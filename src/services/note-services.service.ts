@@ -24,4 +24,8 @@ export class NoteService {
     return this.http.delete(`${this.url}/deleteNote/${title}`);
   }
 
+  public updateNote(title:string, data:NoteModel){
+    return this.http.put(`${this.url}/updateNote/${title}`, data);
+  }
+
 }

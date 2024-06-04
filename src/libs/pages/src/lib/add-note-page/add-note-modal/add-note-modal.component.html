@@ -1,14 +1,37 @@
-<form #data="ngForm" (ngSubmit)="onSubmit(data)">
-    <div class="mb-3">
-        <label for="title"  class="form-label">Başlık</label>
-        <input type="email" ngModel name="title" class="form-control" id="title" placeholder="Başlık">
-    </div>
-    <div class="mb-3">
-        <label for="content"  class="form-label">İçerik</label>
-        <textarea class="form-control" placeholder="Notu giriniz.." ngModel name="content" id="content" rows="3"></textarea>
-    </div>
-    <button class="btn btn-primary" type="submit">
-        Notu Kaydet
-    </button>
-</form>
+<div *ngIf="curenntNote else noData">
+    <form #data="ngForm" (ngSubmit)="noteUpdate(data)">
+        <div class="mb-3">
+            <label for="title"  class="form-label">Başlık</label>
+            <input type="email" [(ngModel)]="curenntNote.title" name="title" class="form-control" id="title" placeholder="Başlık">
+        </div>
+        <div class="mb-3">
+            <label for="content"  class="form-label">İçerik</label>
+            <textarea class="form-control"  [(ngModel)]="curenntNote.content" placeholder="Notu giriniz.." ngModel name="content" id="content" rows="3"></textarea>
+        </div>
+    
+        <div *ngIf="data else noData">
+            <button class="btn btn-primary" type="submit">
+                Notu Güncelle
+            </button>
+        </div>
+    </form>
+</div>
 
+<ng-template #noData>
+    <form #data="ngForm" (ngSubmit)="notEkle(data)">
+        <div class="mb-3">
+            <label for="title"  class="form-label">Başlık</label>
+            <input type="email" ngModel name="title" class="form-control" id="title" placeholder="Başlık">
+        </div>
+        <div class="mb-3">
+            <label for="content"  class="form-label">İçerik</label>
+            <textarea class="form-control" placeholder="Notu giriniz.." ngModel name="content" id="content" rows="3"></textarea>
+        </div>
+    
+        <div *ngIf="data else noData">
+            <button class="btn btn-primary" type="submit">
+                Not Ekle
+            </button>
+        </div>
+    </form>
+</ng-template>

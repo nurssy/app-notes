@@ -1,0 +1,42 @@
+.book-img {
+  width: 450px;
+  height: 550px;
+  margin-left: 120px;
+  margin-top: 100px;
+  position: fixed;
+}
+
+.book-btn {
+  position: absolute;
+  left: calc(50% - 300px);
+  transform: translateX(-50%);
+  bottom: 100px; /* Butonu resmin altından 100 piksel yukarıda konumlandırır */
+  width: 250px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #faf1e4;
+}
+/* Set gray background color and 100% height */
+.sidenav {
+  height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}
+
+
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {
+    height: auto;
+  }
+}

@@ -1,38 +1,40 @@
-<img src="./assets/bg1.jpeg" class="page" alt="" />
-
-
-<div class="wrapper">
-  <li class="add-box">
-    <div class="icon" (click)="openModal()">
-      <mat-icon> add </mat-icon>
+<div class="page">
+  <div class="wrapper">
+  <li class="add-box" (click)="openModal()">
+    <div class="icon">
+      <mat-icon>add</mat-icon>
     </div>
     <p>Yeni Not Ekle</p>
   </li>
 
-  <div *ngIf="notes">
-    <div *ngFor="let note of notes">
-        <ng-container *ngTemplateOutlet="noteArea; context: {note: note}"></ng-container>
-    </div>
-</div>
+  <ng-container *ngIf="notes">
+    <ng-container *ngFor="let note of notes">
+      <ng-container *ngTemplateOutlet="noteArea; context: {note: note}"></ng-container>
+    </ng-container>
+  </ng-container>
 
-<ng-template #noteArea let-note="note">
+  <ng-template #noteArea let-note="note">
     <li class="note">
-        <div class="details">
-          <p>{{note.title}}</p>
-          <span>{{note.content}}</span>
-        </div>
-        <div class="bottom-content">
-          <span>May 21 , 2024</span>
-          <div class="settings"></div>
-          <i class="uil uil-ellipsis-h"></i>
-          
-        </div>
-      </li>
-</ng-template>
+      <div class="details">
+        <p>{{note.title}}</p>
+        <span>{{note.content}}</span>
+      </div>
+      <div class="bottom-content">
+        <span>June 4 , 2024</span>
+        <button class="btnoption" mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="updateNote(note.title)">Düzenle</button>
+          <button mat-menu-item (click)="deleteNote(note.title)">Sil</button>
+        </mat-menu>
+      </div>
+    </li>
+  </ng-template>
+  
+</div>
 
 </div>
 
-<footer class="d-flex justify-content-center">
-    <button class="btn btn-info" [routerLink]="['/allNotes']">büyülü buton</button>
-</footer>
+
 

@@ -11,6 +11,7 @@ import { NoteDetailsModalComponent } from './all-notes-page/note-details-modal/n
 import { MatIconModule } from '@angular/material/icon';
 import { AddNotePageComponent } from './add-note-page/add-note-page.component';
 import { AddNoteModalComponent } from './add-note-page/add-note-modal/add-note-modal.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
@@ -30,8 +31,8 @@ import { AddNoteModalComponent } from './add-note-page/add-note-modal/add-note-m
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
-    MatIconModule
-    
+    MatIconModule,
+    MatMenuModule
   ],
   exports: [
     LoginPageComponent,
