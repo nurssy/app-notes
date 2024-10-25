@@ -5,6 +5,8 @@ import { NoteModel } from 'src/models/notesModel';
 import { NoteService } from 'src/services/note-services.service';
 import { AddNoteModalComponent } from './add-note-modal/add-note-modal.component';
 import { Router } from '@angular/router';
+import { User } from 'src/models/user';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'lib-add-note-page',
@@ -13,35 +15,52 @@ import { Router } from '@angular/router';
 })
 export class AddNotePageComponent {
   notes:NoteModel[] = [];
+  user:User;
 
   
   constructor(
     private noteService: NoteService,
     private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private userService:UserService
   ) { }
 
 
   ngOnInit(): void {
-    this.noteService.getNotes().subscribe(data => {
-      this.notes = data;
-      console.log(this.notes);
-    });
+    this.userService.user.subscribe(
+      (user) => {
+        if(user == null){
+          console.log("Kullanıcı bulunamadı");
+        }
+        else{
+          this.user = user;
+          console.log(this.user);
+          this.noteService.getNotByUserId(this.user.id).subscribe(data => {
+            this.notes = data;
+            console.log(this.notes);
+          });
+        }
+      }
+    );
   }
   
   onSubmit(data:NgForm){
     console.log(data.value);
-    this.noteService.saveNotes(data.value).subscribe(
+    if(this.user){
+      this.noteService.createNote(data.value,this.user.id).subscribe(
       (response) => {
         this.noteService.getNotes().subscribe(data => {
           this.notes = data;
           console.log(this.notes);
+          window.location.reload();
         });
       },
       (error) => {
         console.log(error);
       }
     );
+    }
+    
   }
 
   openModal(){
@@ -58,7 +77,7 @@ export class AddNotePageComponent {
   }
 
   deleteNote(title:string) {
-    this.noteService.delete(title).subscribe(
+    this.noteService.delete(this.user.id,title).subscribe(
       (response) => {
         console.log("silme başarılı" + response);
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {

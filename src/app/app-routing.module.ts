@@ -5,7 +5,6 @@ import { HomePageComponent } from 'src/libs/pages/src/lib/home-page/home-page.co
 import { LoginPageComponent } from 'src/libs/pages/src/lib/login-page/login-page.component';
 import { RegisterPageComponent } from 'src/libs/pages/src/lib/register-page/register-page.component';
 import { UserPageComponent } from 'src/libs/pages/src/lib/user-page/user-page.component';
-import { AllNotesPageComponent } from 'src/libs/pages/src/lib/all-notes-page/all-notes-page.component';
 import { AddNotePageComponent } from 'src/libs/pages/src/lib/add-note-page/add-note-page.component';
 
 
@@ -15,7 +14,6 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   {path:'userPage' , component:UserPageComponent},
-  { path: 'allNotes', component: AllNotesPageComponent },
   { path: 'addNote', component: AddNotePageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];

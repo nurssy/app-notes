@@ -1,0 +1,27 @@
+<div>
+    <div>
+        <form #data="ngForm" (ngSubmit)="createEvent(data)" novalidate>
+            <div class="mb-3 text-center">
+                <label for="title"  class="form-label">Etkinlik içeriği</label>
+                <textarea class="form-control"  ngModel   name="title" id="title" required rows="2" required #title="ngModel"></textarea>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="status" id="flexRadioDefault1" ngModel value="private">
+                <label class="form-check-label" for="flexRadioDefault1">
+                private
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="status" id="flexRadioDefault2" ngModel value="public">
+                <label class="form-check-label" for="flexRadioDefault2">
+                public
+                </label>
+            </div>
+            <div class="text-center">
+                <button class="btn" type="submit">
+                    Etkinlik Oluştur
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

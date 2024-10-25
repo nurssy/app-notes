@@ -1,0 +1,12 @@
+<div class="container">
+    <h1 class="text-center mt-3">Event Bilgisi</h1>
+    <p *ngIf="user" class="text-center mt-2">({{user.name}})</p>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h1 *ngIf="event" class="text-center mt-4">{{event.title}}</h1>
+        </div>
+        <div class="card-footer">
+            <h1 *ngIf="event" class="text-center mt-4">{{event.date}}</h1>
+        </div>
+    </div>
+</div>

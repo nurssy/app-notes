@@ -1,16 +1,20 @@
 
-<div class="container">
+<div class="container" >
   <div class="row content">
     <div class="col-sm-6 sidenav">
         <div class="book">
             <img src="assets/book.png" alt="" class="book-img">
-            <h1></h1>
+            <div class="name">
+              <span>{{user?.name}}'s</span>
+            </div>
             <button class="book-btn" [routerLink]="['/addNote']" >Not Ekle </button>
         </div>
     </div>
 
-    <div class="col-sm-6">
-      <p>takvim kısmı</p>
+    <div  class="col-sm-6" id="calendarContainer">
+      <full-calendar
+      [options]="calendarOptions"
+    ></full-calendar>
     </div>
   </div>
 </div>

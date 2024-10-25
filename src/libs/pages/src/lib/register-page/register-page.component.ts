@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup ,FormBuilder, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/models/user';
-import { UserServiceService } from 'src/services/user-service.service';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'lib-register-page',
@@ -12,7 +12,7 @@ import { UserServiceService } from 'src/services/user-service.service';
 export class RegisterPageComponent {
 
   constructor(
-    private userService:UserServiceService,
+    private userService:UserService,
     private formBuilder:FormBuilder,
     private router:Router
   ) { }
@@ -23,7 +23,7 @@ export class RegisterPageComponent {
 onSubmit(form:NgForm){
     this.userService.register(form.value).subscribe(
       (response) => console.log(response),
-      (error) => console.log(error)
+      (error) => alert("Kayıt Başarısız")
     )
     this.router.navigate(['/login']);
   }

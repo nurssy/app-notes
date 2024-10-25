@@ -1,35 +1,35 @@
 <div *ngIf="curenntNote else noData">
-    <form #data="ngForm" (ngSubmit)="noteUpdate(data)">
+    <form #data="ngForm" (ngSubmit)="noteUpdate(data)" novalidate>
         <div class="mb-3">
             <label for="title"  class="form-label">Başlık</label>
-            <input type="email" [(ngModel)]="curenntNote.title" name="title" class="form-control" id="title" placeholder="Başlık">
+            <input class="form-control"  ngModel   name="title" id="title" [ngModel]="curenntNote.title" rows="1" required #title="ngModel">
+            <div *ngIf="title.invalid && title.touched" class="text-danger">Başlık Gerekli</div>
         </div>
         <div class="mb-3">
             <label for="content"  class="form-label">İçerik</label>
-            <textarea class="form-control"  [(ngModel)]="curenntNote.content" placeholder="Notu giriniz.." ngModel name="content" id="content" rows="3"></textarea>
+            <textarea class="form-control"  [ngModel]="curenntNote.content" required   name="content" id="content" rows="3">{{curenntNote.content}}</textarea>
         </div>
     
-        <div *ngIf="data else noData">
-            <button class="btn btn-primary" type="submit">
-                Notu Güncelle
-            </button>
+        <div class="text-center" *ngIf="data else noData">
+            <button [disabled]="data.invalid" class="btn-2" type="submit">Notu Güncelle</button>
         </div>
     </form>
 </div>
 
-<ng-template #noData>
-    <form #data="ngForm" (ngSubmit)="notEkle(data)">
-        <div class="mb-3">
+<ng-template class="form-details" #noData>
+    <form #data="ngForm" (ngSubmit)="notEkle(data)" novalidate>
+        <div class="mb-3" class="text-center">
             <label for="title"  class="form-label">Başlık</label>
-            <input type="email" ngModel name="title" class="form-control" id="title" placeholder="Başlık">
+            <input type="email" ngModel name="title" class="form-control" id="title" placeholder="Başlık" required #title="ngModel">
         </div>
-        <div class="mb-3">
-            <label for="content"  class="form-label">İçerik</label>
-            <textarea class="form-control" placeholder="Notu giriniz.." ngModel name="content" id="content" rows="3"></textarea>
+        <br>
+        <div class="mb-3" class="text-center">
+            <label for="content"  class="form-label" >İçerik</label>
+            <textarea class="form-control" placeholder="Notu giriniz.." ngModel name="content" id="content" rows="3" required #content="ngModel"></textarea>
         </div>
     
-        <div *ngIf="data else noData">
-            <button class="btn btn-primary" type="submit">
+        <div class="text-center" *ngIf="data else noData">
+            <button class="btn" type="submit">
                 Not Ekle
             </button>
         </div>

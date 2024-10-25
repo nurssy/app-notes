@@ -6,3 +6,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mdc-dialog__surface {
     background-color: rgb(230, 230, 230) !important;
 }  
+
+.fc-day-today {
+    background-color: #5e578867 !important; /* İstediğiniz arka plan rengini girin */
+    color: #000000 !important; /* İstediğiniz metin rengini girin */
+  }
+
+  .fc-daygrid-day-number {
+    color: #000000 !important; /* İstediğiniz renk kodunu girin */
+  }
+
+  .fc .fc-col-header-cell-cushion {
+    color: #000000 !important; /* İstediğiniz renk kodunu girin */
+  }
+ 

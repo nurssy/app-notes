@@ -14,22 +14,26 @@
   </ng-container>
 
   <ng-template #noteArea let-note="note">
-    <li class="note">
-      <div class="details">
-        <p>{{note.title}}</p>
-        <span>{{note.content}}</span>
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title p-1 text-center">{{note.title}}</h2>
+        </div>
+        <div class="card-body floww">
+          <p class="card-text p-2">{{note.content}}</p>
+        </div>
+        <div class="p-1 card-footer d-flex justify-content-between align-items-center">
+          <span>June 9, 2024</span>
+          <div>
+            <button class="btn btn-link btn-sm p-0" mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon class="icon-r">more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="updateNote(note.title)">Düzenle</button>
+              <button mat-menu-item (click)="deleteNote(note.title)">Sil</button>
+            </mat-menu>
+          </div>
+        </div>
       </div>
-      <div class="bottom-content">
-        <span>June 4 , 2024</span>
-        <button class="btnoption" mat-icon-button [matMenuTriggerFor]="menu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="updateNote(note.title)">Düzenle</button>
-          <button mat-menu-item (click)="deleteNote(note.title)">Sil</button>
-        </mat-menu>
-      </div>
-    </li>
   </ng-template>
   
 </div>

@@ -6,12 +6,13 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserPageComponent } from './user-page/user-page.component';
 import { CommonModule } from '@angular/common';
-import { AllNotesPageComponent } from './all-notes-page/all-notes-page.component';
-import { NoteDetailsModalComponent } from './all-notes-page/note-details-modal/note-details-modal.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AddNotePageComponent } from './add-note-page/add-note-page.component';
 import { AddNoteModalComponent } from './add-note-page/add-note-modal/add-note-modal.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarModalComponent } from './user-page/calendar-modal/calendar-modal.component';
+import { EventModalComponent } from './user-page/event-modal/event-modal.component';
 
 
 
@@ -21,10 +22,10 @@ import { MatMenuModule } from '@angular/material/menu';
     RegisterPageComponent,
     HomePageComponent,
     UserPageComponent,
-    AllNotesPageComponent,
-    NoteDetailsModalComponent,
     AddNotePageComponent,
-    AddNoteModalComponent
+    AddNoteModalComponent,
+    CalendarModalComponent,
+    EventModalComponent
   ],
   imports: [
     CommonModule,
@@ -32,12 +33,13 @@ import { MatMenuModule } from '@angular/material/menu';
     RouterModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    FullCalendarModule
   ],
   exports: [
     LoginPageComponent,
     RegisterPageComponent,
     HomePageComponent,
-  ]
+  ],
 })
 export class PagesModule { }

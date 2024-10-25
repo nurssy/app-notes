@@ -1,0 +1,53 @@
+.headd{
+    position: absolute;
+}
+.header-cl {
+    background-color: #282739;
+
+  }
+
+.logo{
+    display: flex;
+    align-items: center;
+    width: 50px;
+    margin-right: 10px;
+   }
+
+
+
+.logo img{
+    width: 100%;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+.name{
+    font-size: 30px;
+    color: #1f2a3d;
+    font-weight: 900;
+}
+
+.nav {
+    margin-left: -70px; 
+}
+
+.clickable-link {
+  text-decoration: none; /* Alt çizgiyi kaldır */
+  color: white; /* Yazı rengini beyaz yap */
+  display: inline-block; /* Satır içi blok eleman yap */
+  transition: background-color 0.2s, transform 0.1s; /* Geçiş animasyonu ekle */
+  margin: 0;
+}
+
+.clickable-link:hover,
+.clickable-link:focus {
+  transform: scale(1.05); /* Hover ve focus durumunda hafif büyüme efekti */
+  outline: none; /* Focus outline'ı kaldır */
+}
+
+.clickable-link:active {
+  transform: scale(0.95); /* Aktif durumda hafif küçülme efekti */
+}
+.no-margin {
+    margin: 0 !important; /* Margin değerini sıfırlamak ve Bootstrap sınıflarının önüne geçmek için !important kullan */
+  }

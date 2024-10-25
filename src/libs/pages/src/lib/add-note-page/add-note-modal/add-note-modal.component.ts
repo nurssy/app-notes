@@ -3,7 +3,9 @@ import { NgForm } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NoteModel } from 'src/models/notesModel';
+import { User } from 'src/models/user';
 import { NoteService } from 'src/services/note-services.service';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'lib-add-note-modal',
@@ -13,23 +15,36 @@ import { NoteService } from 'src/services/note-services.service';
 export class AddNoteModalComponent implements OnInit{
 
   curenntNote:NoteModel;
+  user:User;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data:NoteModel,
     private noteService: NoteService,
     private dialog: MatDialog,
     private router:Router,
+    private userService:UserService
   ) { }
 
 
   ngOnInit(): void {
     this.curenntNote = this.data;
+    console.log(this.curenntNote);
+    this.userService.user.subscribe(
+      (user) => {
+        if(user == null){
+          console.log("Kullanıcı bulunamadı");
+        }
+        else{
+          this.user = user;
+        }
+      }
+    );
   }
 
   
   notEkle(data:NgForm){
-    console.log(data.value);
-    this.noteService.saveNotes(data.value).subscribe(
+    if(this.user){
+      this.noteService.createNote(data.value,this.user.id).subscribe(
       (response) => {
         this.noteService.getNotes().subscribe(data => {
           this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -42,10 +57,13 @@ export class AddNoteModalComponent implements OnInit{
         console.log(error);
       }
     );
+    }
+    
   }
 
   noteUpdate(data:NgForm){
-    this.noteService.updateNote(this.curenntNote.title,data.value).subscribe(
+    console.log(this.curenntNote.title);
+    this.noteService.updateNote(this.user.id,this.curenntNote.title,data.value).subscribe(
       (response) => {
         this.noteService.getNotes().subscribe(data => {
           this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {

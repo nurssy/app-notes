@@ -48,10 +48,11 @@
 }
 
 .add-box{
+    display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
- 
+    justify-content: center; /* Center vertically */
 }
 
 .add-box .icon{
@@ -60,8 +61,10 @@
     color: black;
     font-size: 40px;
     border-radius: 50%; ;
-    justify-content: center;
     border: 2px dashed black;
+    display: flex; /* Ensures icon is centered */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
 .add-box p{
@@ -169,4 +172,31 @@
     border: none;
 }
 
+.notecontent{
+    height: 100px;
+}
 
+.card{
+    background-color:#f5f5dc;
+}
+
+.floww{
+    width: 265px;
+    height: 120px;
+    overflow-y: scroll;
+    overflow:auto;
+}
+
+.floww::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Firefox */
+.floww {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f5f5dc;
+}
+
+.icon-r{
+    color: black;
+}

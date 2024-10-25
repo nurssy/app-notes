@@ -1,27 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserServiceService } from 'src/services/user-service.service';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'lib-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit{
   constructor(
-    private userService:UserServiceService,
+    private userService:UserService,
     private router:Router
   ) { }
 
+  ngOnInit(): void {
+    
+    if(this.userService.isLogin()){
+      this.router.navigate(['/userPage']);
+    }
+  }
+
 onSubmit(form:NgForm){
     this.userService.login(form.value).subscribe(
-      (response) => this.router.navigate(['/userPage']),
+      (response) => {
+        this.router.navigate(['/userPage'])
+        window.location.reload();
+      },
       (error) => alert("Kullanıcı bulunamadı")
     )
-
-    this.userService.login(form.value).subscribe(
-      data => {console.log(data);} ,
-      error => {console.log(error)});
   }
 }

@@ -1,5 +1,4 @@
-
-  .form-label {
+.form-label {
     font-weight: bold; /* Etiketleri kalın yap */
     color: #495057; /* Koyu gri renk */
     padding: 20px;
@@ -15,24 +14,18 @@
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Hafif mavi gölge */
   }
   
-.btn{
+  .btn{
     padding: 10px; /* İç boşluk ekle */
     font-size: 16px; /* Yazı boyutu */
     border-radius: 4px; /* Köşeleri yuvarlat */
     background-color: rgb(40, 39, 57); /* Mavi arka plan */
     border: none; /* Sınır yok */
     color: white; /* Yazı rengini beyaz yap */
-    margin-top: 130px;
-    width: 120px;
+    margin-top: 190px;
+    width: 130px;
   }
 
-  .btn-2{
-    padding: 10px; 
-    font-size: 16px;
-    border-radius: 4px; /* Köşeleri yuvarlat */
-    background-color: rgb(40, 39, 57); /* Mavi arka plan */
-    border: none; /* Sınır yok */
-    color: white; /* Yazı rengini beyaz yap */
-    margin-top: 130px;
-    width: 130px;
+  .form-control{
+    margin-top: 10px;
+    height: 70px;
   }
